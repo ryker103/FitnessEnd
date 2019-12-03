@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "207563296016",
+    "firebase_url": "https://fitnessm-5920d.firebaseio.com",
+    "project_id": "fitnessm-5920d",
+    "storage_bucket": "fitnessm-5920d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207563296016:android:b76b549525d80e5ecba995",
+        "android_client_info": {
+          "package_name": "com.example.fitnessm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207563296016-dj4tm5euj3rieuth4coe373fpk02mr59.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fitnessm",
+            "certificate_hash": "6b7fb5ee44d12dae59bc5f685bd4eddcb2517b08"
+          }
+        },
+        {
+          "client_id": "207563296016-9lpeee7dkjnmh1mhhacuc6rt8ivkua8r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhgrt_v-O8zmrjbBG8Llh_BI0ni0uafT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207563296016-9lpeee7dkjnmh1mhhacuc6rt8ivkua8r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
