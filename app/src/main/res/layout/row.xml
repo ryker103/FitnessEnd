@@ -19,6 +19,13 @@
             android:layout_height="75dp"
             android:src="@color/cardview_dark_background"/>
 
+        //add
+        <ImageView
+            android:id="@+id/imageIVAdd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@color/cardview_dark_background"/>
+
         <TextView
             android:id="@+id/titleTV"
             android:layout_width="match_parent"
@@ -33,10 +40,23 @@
             android:layout_marginStart="10dp"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="Mô tả"
             android:id="@+id/descriptionTV"
+            android:textSize="18dp"
+            android:textColor="#a9a9a9"
+            android:layout_toRightOf="@+id/imageIV"
+            android:layout_toEndOf="@+id/imageIV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/titleTV"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Mô tả"
+            android:id="@+id/descriptionTVAdd"
             android:textSize="18dp"
             android:textColor="#a9a9a9"
             android:layout_toRightOf="@+id/imageIV"

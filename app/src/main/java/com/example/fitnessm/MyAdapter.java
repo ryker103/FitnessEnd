@@ -37,31 +37,35 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, int position) {
 
+        //mấy cái holder settext này là cho nó hiển thị ra ngay thằng trc khi click
         holder.mTitle.setText(models.get(position).getTitle());
         holder.mDes.setText(models.get(position).getDescription());
         holder.mImaeView.setImageResource(models.get(position).getImg());
+        holder.dImageView.setImageResource(models.get(position).getImgAdd());
+        holder.dDes.setText(models.get(position).getDescripAdd());
         ///
 
         //pass Activity
+
+        //con cái hàm setitemclick này là m code lúc m click vào  hieu hiue,
+        // may cai nay t hieu ,ok t chi mac cai cho nay ne
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
                 String gTitle = models.get(position).getTitle();
                 String gDesc = models.get(position).getDescription();
-                BitmapDrawable bitmapDrawable = (BitmapDrawable)holder.mImaeView.getDrawable();
-
+                String gDescAdd = models.get(position).getDescripAdd();
+                BitmapDrawable bitmapDrawable = (BitmapDrawable)holder.dImageView.getDrawable(); //t kb la thay cai moi tao vo, nen no cu ra cai hinh cu ừa r bên cái thằng another thêm code vô thôi
                 Bitmap bitmap = bitmapDrawable.getBitmap();
-
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
-
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-
                 byte[] bytes = stream.toByteArray();
 
                 //
                 Intent intent  = new Intent(c, AnotherActivity.class);
                 intent.putExtra("iTitle", gTitle);
                 intent.putExtra("iDesc", gDesc);
+                intent.putExtra("iDescAdd", gDescAdd);
                 intent.putExtra("iImage", bytes);
                 c.startActivity(intent);
             }

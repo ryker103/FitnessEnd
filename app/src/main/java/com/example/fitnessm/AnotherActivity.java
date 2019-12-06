@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class AnotherActivity extends AppCompatActivity {
 
-    TextView mTitleTv, mDesTv;
-    ImageView mImaeView;
+    TextView mTitleTv, mDesTv, mDesTvAdd;  //de t thu lam m coi dung k nha
+    ImageView mImaeView, mImaeViewAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +26,16 @@ public class AnotherActivity extends AppCompatActivity {
         mDesTv = findViewById(R.id.description);
         mImaeView = findViewById(R.id.imageView);
 
+        mDesTvAdd= findViewById(R.id.descriptionAdd);
+        mImaeViewAdd= findViewById(R.id.imageView); //phai cai nay k ta đúng r
+
         //lấy dữ liệu từ intent và đưa dữ liệu ra
         Intent intent = getIntent();
 
         String mTitle = intent.getStringExtra("iTitle");
         String mDescription = intent.getStringExtra("iDesc");
+
+        String mDescriptionAdd = intent.getStringExtra("iDescAdd");
 
         byte[] mBytes = getIntent().getByteArrayExtra("iImage");
 
@@ -42,6 +47,7 @@ public class AnotherActivity extends AppCompatActivity {
 
         mTitleTv.setText(mTitle);
         mDesTv.setText(mDescription);
-        mImaeView.setImageBitmap(bitmap);
+        mDesTvAdd.setText(mDescriptionAdd); //chay dc chua ta description add co string gi m tao chua
+        mImaeViewAdd.setImageBitmap(bitmap);
     }
 }

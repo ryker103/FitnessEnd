@@ -36,6 +36,17 @@
         android:id="@+id/description"
         android:textSize="18dp"
         android:textColor="#a9a9a9"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/titleAno"
         android:layout_marginTop="5dp"/>
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mô tả"
+        android:id="@+id/descriptionAdd"
+        android:textSize="18dp"
+        android:textColor="#a9a9a9"
+        android:layout_below="@+id/titleAno"
+        android:layout_marginTop="100dp"/>
 </RelativeLayout>
