@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     ImageView mImaeView, dImageView;
-    TextView mTitle, mDes, dDes;
+    TextView mTitle, mDes, dDes, mDesKTT, mDesMTTTK;
     ItemClickListener itemClickListener;
 
     public MyHolder(@NonNull View itemView) {
@@ -20,7 +20,11 @@ public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickLis
         this.mTitle = itemView.findViewById(R.id.titleTV);
         this.mDes = itemView.findViewById(R.id.descriptionTV);
         this.dImageView = itemView.findViewById(R.id.imageIVAdd);
-        this.dDes = itemView.findViewById(R.id.descriptionTVAdd); //dung ch ua ok
+        this.dDes = itemView.findViewById(R.id.descriptionTVAdd);
+
+        //add them 2 cai mo ta ky thuat tap
+        this.mDesKTT = itemView.findViewById(R.id.descriptionKTT);
+        this.mDesMTTTK = itemView.findViewById(R.id.descriptionmotaKTT);
 
         itemView.setOnClickListener(this);
     }

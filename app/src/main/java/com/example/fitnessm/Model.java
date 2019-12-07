@@ -1,7 +1,7 @@
 package com.example.fitnessm;
 
 public class Model {
-    private String title, description, descripAdd;
+    private String title, description, descripAdd, descriptionKTT, descriptionMoTaKTT;
     private int img, imgAdd;
 
     public String getTitle() {
@@ -26,6 +26,22 @@ public class Model {
 
     public void setDescripAdd(String descripAdd) {
         this.descripAdd = descripAdd;
+    }
+
+    public String getDescriptionKTT() {
+        return descriptionKTT;
+    }
+
+    public void setDescriptionKTT(String descriptionKTT) {
+        this.descriptionKTT = descriptionKTT;
+    }
+
+    public String getDescriptionMoTaKTT() {
+        return descriptionMoTaKTT;
+    }
+
+    public void setDescriptionMoTaKTT(String descriptionMoTaKTT) {
+        this.descriptionMoTaKTT = descriptionMoTaKTT;
     }
 
     public int getImg() {

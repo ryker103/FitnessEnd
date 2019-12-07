@@ -43,7 +43,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.mImaeView.setImageResource(models.get(position).getImg());
         holder.dImageView.setImageResource(models.get(position).getImgAdd());
         holder.dDes.setText(models.get(position).getDescripAdd());
-        ///
+        //ad them
+        holder.mDesKTT.setText(models.get(position).getDescriptionKTT());
+        holder.mDesMTTTK.setText(models.get(position).getDescriptionMoTaKTT());
+
 
         //pass Activity
 
@@ -55,6 +58,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 String gTitle = models.get(position).getTitle();
                 String gDesc = models.get(position).getDescription();
                 String gDescAdd = models.get(position).getDescripAdd();
+
+                //add them 2 cai Des
+                String gDescKTT = models.get(position).getDescriptionKTT();
+                String gDescMTKTT = models.get(position).getDescriptionMoTaKTT();
+
                 BitmapDrawable bitmapDrawable = (BitmapDrawable)holder.dImageView.getDrawable(); //t kb la thay cai moi tao vo, nen no cu ra cai hinh cu ừa r bên cái thằng another thêm code vô thôi
                 Bitmap bitmap = bitmapDrawable.getBitmap();
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -66,6 +74,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 intent.putExtra("iTitle", gTitle);
                 intent.putExtra("iDesc", gDesc);
                 intent.putExtra("iDescAdd", gDescAdd);
+                //ad them 2 cai Des
+                intent.putExtra("iDescKTT", gDescKTT);
+                intent.putExtra("iDescMTKTT", gDescMTKTT);
                 intent.putExtra("iImage", bytes);
                 c.startActivity(intent);
             }

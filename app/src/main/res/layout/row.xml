@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
+
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -57,6 +58,35 @@
             android:layout_height="0dp"
             android:text="Mô tả"
             android:id="@+id/descriptionTVAdd"
+            android:textSize="18dp"
+            android:textColor="#a9a9a9"
+            android:layout_toRightOf="@+id/imageIV"
+            android:layout_toEndOf="@+id/imageIV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/titleTV"/>
+
+        //ky thuat tap va mo ta
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Ky thuat tap"
+            android:id="@+id/descriptionKTT"
+            android:textSize="18dp"
+            android:textColor="#a9a9a9"
+            android:layout_toRightOf="@+id/imageIV"
+            android:layout_toEndOf="@+id/imageIV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/titleTV"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Ky thuat tap"
+            android:id="@+id/descriptionmotaKTT"
             android:textSize="18dp"
             android:textColor="#a9a9a9"
             android:layout_toRightOf="@+id/imageIV"

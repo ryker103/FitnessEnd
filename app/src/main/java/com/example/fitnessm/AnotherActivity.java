@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class AnotherActivity extends AppCompatActivity {
 
-    TextView mTitleTv, mDesTv, mDesTvAdd;  //de t thu lam m coi dung k nha
+    TextView mTitleTv, mDesTv, mDesTvAdd, mDesKTT, mDesMTKTT;  //de t thu lam m coi dung k nha
     ImageView mImaeView, mImaeViewAdd;
 
     @Override
@@ -25,9 +25,11 @@ public class AnotherActivity extends AppCompatActivity {
         mTitleTv = findViewById(R.id.titleAno);
         mDesTv = findViewById(R.id.description);
         mImaeView = findViewById(R.id.imageView);
-
         mDesTvAdd= findViewById(R.id.descriptionAdd);
-        mImaeViewAdd= findViewById(R.id.imageView); //phai cai nay k ta đúng r
+        mImaeViewAdd= findViewById(R.id.imageView);
+        //add them 2 Des
+        mDesKTT= findViewById(R.id.descriptionKTT);
+        mDesMTKTT= findViewById(R.id.descriptionMTKTT);
 
         //lấy dữ liệu từ intent và đưa dữ liệu ra
         Intent intent = getIntent();
@@ -36,6 +38,10 @@ public class AnotherActivity extends AppCompatActivity {
         String mDescription = intent.getStringExtra("iDesc");
 
         String mDescriptionAdd = intent.getStringExtra("iDescAdd");
+
+        String mDescriptionKTT = intent.getStringExtra("iDescKTT");
+
+        String mDescriptionMTKTT = intent.getStringExtra("iDescMTKTT");
 
         byte[] mBytes = getIntent().getByteArrayExtra("iImage");
 
@@ -47,7 +53,11 @@ public class AnotherActivity extends AppCompatActivity {
 
         mTitleTv.setText(mTitle);
         mDesTv.setText(mDescription);
-        mDesTvAdd.setText(mDescriptionAdd); //chay dc chua ta description add co string gi m tao chua
+        mDesTvAdd.setText(mDescriptionAdd);
+
+        mDesKTT.setText(mDescriptionKTT);
+        mDesMTKTT.setText(mDescriptionMTKTT);
+
         mImaeViewAdd.setImageBitmap(bitmap);
     }
 }
