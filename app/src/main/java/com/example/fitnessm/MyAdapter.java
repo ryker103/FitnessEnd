@@ -3,6 +3,7 @@ package com.example.fitnessm;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.zip.Inflater;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
+        int row_index = -1;
     Context c;
     ArrayList<Model> models;
 
@@ -35,7 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
 
         //mấy cái holder settext này là cho nó hiển thị ra ngay thằng trc khi click
         holder.mTitle.setText(models.get(position).getTitle());
@@ -47,7 +50,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.mDesKTT.setText(models.get(position).getDescriptionKTT());
         holder.mDesMTTTK.setText(models.get(position).getDescriptionMoTaKTT());
 
+      /*  holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                row_index= position;
+                notifyDataSetChanged();
+            }
+        });
 
+        if (row_index==position) {
+            holder.linearLayout.setBackgroundColor(Color.RED);
+        } else {
+            holder.linearLayout.setBackgroundColor(Color.parseColor("#dddddd"));
+        }*/
         //pass Activity
 
         //con cái hàm setitemclick này là m code lúc m click vào  hieu hiue,
@@ -68,7 +83,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] bytes = stream.toByteArray();
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                ///Đổi màu click
+                row_index= position;
+                notifyDataSetChanged();
                 //
                 Intent intent  = new Intent(c, AnotherActivity.class);
                 intent.putExtra("iTitle", gTitle);
@@ -79,8 +97,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
                 intent.putExtra("iDescMTKTT", gDescMTKTT);
                 intent.putExtra("iImage", bytes);
                 c.startActivity(intent);
+
+
+
+
             }
         });
+
+        //Đổi màu click
+        Random random = new Random();
+        /*int color = Color.argb(255, random.nextInt(256),random.nextInt(256),
+                random.nextInt(256) );*/
+        if (row_index==position) {
+            holder.linearLayout.setBackgroundColor(Color.argb(255, random.nextInt(256),random.nextInt(256),
+                    random.nextInt(256) ));
+        } else {
+            holder.linearLayout.setBackgroundColor(Color.parseColor("#dddddd"));
+        }
+
+
+
 
 
        /* //activity khac

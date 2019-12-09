@@ -1,20 +1,26 @@
 package com.example.fitnessm;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+    public CardView linearLayout;
     ImageView mImaeView, dImageView;
     TextView mTitle, mDes, dDes, mDesKTT, mDesMTTTK;
     ItemClickListener itemClickListener;
 
+    @SuppressLint("ResourceType")
     public MyHolder(@NonNull View itemView) {
         super(itemView);
+
+        this.linearLayout = itemView.findViewById(R.id.rowlayout);//Đổi màu click
 
         this.mImaeView = itemView.findViewById(R.id.imageIV);
         this.mTitle = itemView.findViewById(R.id.titleTV);

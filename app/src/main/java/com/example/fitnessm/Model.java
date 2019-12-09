@@ -1,8 +1,15 @@
 package com.example.fitnessm;
 
 public class Model {
-    private String title, description, descripAdd, descriptionKTT, descriptionMoTaKTT;
+    private String title, description, descripAdd, descriptionKTT, descriptionMoTaKTT, setDescripAdd;
     private int img, imgAdd;
+    public String getSetDescripAdd() {
+        return setDescripAdd;
+    }
+
+    public void setSetDescripAdd(String setDescripAdd) {
+        this.setDescripAdd = setDescripAdd;
+    }
 
     public String getTitle() {
         return title;

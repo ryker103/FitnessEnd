@@ -8,15 +8,14 @@
     tools:context=".AnotherActivity">
 
 
+    //Tieu de (Da an)
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/backgym"/>
+        android:layout_height="250dp"
+        android:src="@drawable/backgym" />
 
-
-    //Tieu de (Da an)
     <TextView
         android:id="@+id/titleAno"
         android:layout_width="0dp"
@@ -72,7 +71,7 @@
     <TextView
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="Mô tả kỹ thuật tập"
         android:id="@+id/descriptionMTKTT"
         android:textSize="18dp"
@@ -80,4 +79,10 @@
         android:layout_below="@+id/descriptionKTT"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"/>
+
+    //ad coutdown
+
+
+
+
 </RelativeLayout>
