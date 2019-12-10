@@ -8,24 +8,29 @@ import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
-import java.util.zip.Inflater;
 
-public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyHolder> implements Filterable {
 
-        int row_index = -1;
+    int row_index = -1;
     Context c;
     ArrayList<Model> models;
+    ArrayList<Model> modelsFilterable;
 
     public MyAdapter(Context c, ArrayList<Model> models) {
         this.c = c;
         this.models = models;
+        this.modelsFilterable = models;
     }
 
     @NonNull
@@ -40,33 +45,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
 
+        //animation
+        holder.linearLayoutRe.setAnimation(AnimationUtils.loadAnimation(c, R.anim.fade_scale_animation));
+
+
         //mấy cái holder settext này là cho nó hiển thị ra ngay thằng trc khi click
-        holder.mTitle.setText(models.get(position).getTitle());
-        holder.mDes.setText(models.get(position).getDescription());
-        holder.mImaeView.setImageResource(models.get(position).getImg());
-        holder.dImageView.setImageResource(models.get(position).getImgAdd());
-        holder.dDes.setText(models.get(position).getDescripAdd());
+        holder.mTitle.setText(modelsFilterable.get(position).getTitle());
+        holder.mDes.setText(modelsFilterable.get(position).getDescription());
+        holder.mImaeView.setImageResource(modelsFilterable.get(position).getImg());
+        holder.dImageView.setImageResource(modelsFilterable.get(position).getImgAdd());
+        holder.dDes.setText(modelsFilterable.get(position).getDescripAdd());
         //ad them
-        holder.mDesKTT.setText(models.get(position).getDescriptionKTT());
-        holder.mDesMTTTK.setText(models.get(position).getDescriptionMoTaKTT());
+        holder.mDesKTT.setText(modelsFilterable.get(position).getDescriptionKTT());
+        holder.mDesMTTTK.setText(modelsFilterable.get(position).getDescriptionMoTaKTT());
 
-      /*  holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                row_index= position;
-                notifyDataSetChanged();
-            }
-        });
 
-        if (row_index==position) {
-            holder.linearLayout.setBackgroundColor(Color.RED);
-        } else {
-            holder.linearLayout.setBackgroundColor(Color.parseColor("#dddddd"));
-        }*/
-        //pass Activity
-
-        //con cái hàm setitemclick này là m code lúc m click vào  hieu hiue,
-        // may cai nay t hieu ,ok t chi mac cai cho nay ne
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
@@ -116,42 +109,51 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         }
 
 
-
-
-
-       /* //activity khac
-        holder.setItemClickListener(new ItemClickListener() {
-            @Override
-            public void onItemClickListener(View v, int position) {
-
-                if (models.get(position).getTitle().equals("Vai")){
-
-                }
-               *//* if (models.get(position).getTitle().equals("Dumbbell Bench Press")){
-
-                }
-                if (models.get(position).getTitle().equals("Standing Cable Crossover")){
-
-                }
-                if (models.get(position).getTitle().equals("Dumbbell Incline Press")){
-
-                }
-                if (models.get(position).getTitle().equals("Barbell Incline Press")){
-
-                }*//*
-
-                Intent intent  = new Intent(c, AnotherActivity.class);
-               *//* intent.putExtra("iTitle", gTitle);
-                intent.putExtra("iDesc", gDesc);
-                intent.putExtra("iImage", bytes);*//*
-                c.startActivity(intent);
-            }
-        });*/
-
     }
 
     @Override
     public int getItemCount() {
-        return models.size();
+        return modelsFilterable.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String Key = constraint.toString();
+                if(Key.isEmpty())
+                {
+                    modelsFilterable = models;
+                }
+
+                else
+                {
+                    List<Model> lstFiltered = new ArrayList<>();
+                    for (Model rows: models) {
+                        if (rows.getTitle().toLowerCase().contains(Key.toLowerCase())) {
+                            lstFiltered.add(rows);
+                        }
+
+                    }
+
+                    modelsFilterable = (ArrayList<Model>) lstFiltered;
+
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = modelsFilterable;
+                return filterResults;
+
+
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+                modelsFilterable = (ArrayList<Model>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }

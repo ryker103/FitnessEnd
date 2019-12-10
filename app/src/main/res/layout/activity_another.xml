@@ -7,6 +7,11 @@
     android:background="#fff"
     tools:context=".AnotherActivity">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/linearImage">
 
     //Tieu de (Da an)
 
@@ -29,59 +34,70 @@
         android:layout_marginLeft="10dp"
         />
 
-    <TextView
+</LinearLayout>
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mô tả"
-        android:id="@+id/description"
-        android:textSize="18dp"
-        android:textColor="#3F51B5"
-        android:layout_below="@+id/titleAno"
-        android:layout_marginTop="1dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"/>
-
-    <TextView
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mô tả"
-        android:id="@+id/descriptionAdd"
-        android:textSize="18dp"
-        android:textColor="#a9a9a9"
-        android:layout_below="@+id/description"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"/>
-
-    //add them 2 Des
-    <TextView
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ky thuật tập"
-        android:id="@+id/descriptionKTT"
-        android:textSize="18dp"
-        android:textColor="#3F51B5"
-        android:textStyle="bold"
-        android:layout_below="@+id/descriptionAdd"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"/>
-
-    <TextView
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Mô tả kỹ thuật tập"
-        android:id="@+id/descriptionMTKTT"
-        android:textSize="18dp"
-        android:textColor="#a9a9a9"
-        android:layout_below="@+id/descriptionKTT"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"/>
+        android:orientation="vertical"
+        android:layout_below="@id/linearImage">
 
-    //ad coutdown
+        <TextView
 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả"
+            android:id="@+id/description"
+            android:textSize="18dp"
+            android:textColor="#3F51B5"
+            android:layout_below="@+id/titleAno"
+            android:layout_marginTop="1dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả"
+            android:id="@+id/descriptionAdd"
+            android:textSize="18dp"
+            android:textColor="#a9a9a9"
+            android:layout_below="@+id/description"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"/>
+
+        //add them 2 Des
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ky thuật tập"
+            android:id="@+id/descriptionKTT"
+            android:textSize="18dp"
+            android:textColor="#3F51B5"
+            android:textStyle="bold"
+            android:layout_below="@+id/descriptionAdd"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Mô tả kỹ thuật tập"
+            android:id="@+id/descriptionMTKTT"
+            android:textSize="18dp"
+            android:textColor="#a9a9a9"
+            android:layout_below="@+id/descriptionKTT"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"/>
+
+        //ad coutdown
+
+
+
+    </LinearLayout>
 
 
 

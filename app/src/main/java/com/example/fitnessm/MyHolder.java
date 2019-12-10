@@ -3,6 +3,7 @@ package com.example.fitnessm;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public CardView linearLayout;
+    public LinearLayout linearLayoutRe; //animation
     ImageView mImaeView, dImageView;
     TextView mTitle, mDes, dDes, mDesKTT, mDesMTTTK;
     ItemClickListener itemClickListener;
@@ -20,6 +22,7 @@ public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickLis
     public MyHolder(@NonNull View itemView) {
         super(itemView);
 
+        this.linearLayoutRe = itemView.findViewById(R.id.linearLayout); //animation
         this.linearLayout = itemView.findViewById(R.id.rowlayout);//Đổi màu click
 
         this.mImaeView = itemView.findViewById(R.id.imageIV);
